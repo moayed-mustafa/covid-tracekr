@@ -1,28 +1,38 @@
-import styles from './App.module.css';
 import React from 'react'
-// import Cards from './components/Cards/Cards'
-import {Cards, Charts, CountryPicker} from './components/components'
+import styles from './App.module.css';
+import { fetchData} from './api'
+import { Cards, Charts, CountryPicker } from './components/components'
 
-// The reason App is a class component is because it's easier *according to the guy making the tutoial* to make async HTTP requests with it!
-//* */ This is an api I found
-//! https://api.covid19api.com/
 
-//  The tutorial uses two different apis I think
-// one to fetch bulk data
-// and this one to fetch daily data cases: // 'https://api.covidtracking.com/v1/us/daily.json'
-// It would be good to follow the tutorial I think
 class App extends React.Component{
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      data : {}
+
+    }
+  }
+
+  async componentDidMount() {
+    const fetcheData = await fetchData()
+    this.setState({data:fetcheData})
+
+
+  }
+
   render() {
-    return (
+    const {data }= this.state
+    console.log(data)
+   return (
       // the styling is being applied individually ,Pretty cool!
       <div className={styles.container}>
-        <h1>Covid Tracker</h1>
-        <Cards/>
+       <Cards data={data}/>
         <Charts/>
-        <CountryPicker/>
+       <CountryPicker />
       </div>
     )
-  }
+}
 }
 
 export default App;

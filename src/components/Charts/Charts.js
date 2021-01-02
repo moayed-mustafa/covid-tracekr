@@ -5,7 +5,7 @@ import React from 'react'
 
 const Charts = () => {
     return (
-        <h1>This is where the Charts are going to be</h1>
+        <h1></h1>
     )
 
 }

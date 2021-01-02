@@ -5,7 +5,7 @@ import React from 'react'
 
 const CountryPicker = () => {
     return (
-        <h1>This is where the CountryPicker are going to be</h1>
+        <h1></h1>
     )
 
 }
