@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './App.module.css';
-import { fetchData} from './api'
+import { fetchData, fetchDailyData} from './api'
 import { Cards, Charts, CountryPicker } from './components/components'
 
 
@@ -15,20 +15,25 @@ class App extends React.Component{
   }
 
   async componentDidMount() {
-    const fetcheData = await fetchData()
-    this.setState({data:fetcheData})
+    // get the general data
+    const getData = await fetchData()
+
+    // get the daily data
+    const getDailyData = await fetchDailyData();
+    // alter the state;
+    this.setState({ data: getData, dailyData: getDailyData.data })
+    // console.log(this.state.dailyData);
 
 
   }
 
   render() {
-    const {data }= this.state
-    console.log(data)
+    const { data, dailyData} = this.state
    return (
       // the styling is being applied individually ,Pretty cool!
       <div className={styles.container}>
        <Cards data={data}/>
-        <Charts/>
+       <Charts dailyData={dailyData}/>
        <CountryPicker />
       </div>
     )

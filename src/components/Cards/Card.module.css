@@ -1,0 +1,33 @@
+/*  using modulke so that the css here is applied only on cards.jsx */
+
+
+.container{
+    border: solid rgba(0,0,0,0.5) 2px;
+    border-radius: 10px;
+    margin: 50px;
+    padding: 15px;
+    font-family: 'Source Code Pro', monospace;
+    background-color:rgba(237, 241, 243, 0.6);
+
+}
+.card{
+    border-top: solid rgba(117, 111, 111, 0.6) 10px;
+    border-radius: 10px;
+    margin: 0 2% !important;
+
+}
+.infected{
+    /* background-color: yellowgreen !important; */
+    border-bottom: solid rgba(230, 39, 32, 0.6) 10px;
+
+}
+.recovered{
+    /* background-color: goldenrod !important; */
+    border-bottom: solid rgba(52, 180, 47, 0.6) 10px;
+
+}
+.deaths{
+    /* background-color: orangered!important; */
+    border-bottom: solid rgba(0, 0, 0, 0.8) 10px;
+
+}

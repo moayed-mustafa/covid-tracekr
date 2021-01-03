@@ -3,6 +3,7 @@
 import axios from 'axios'
 
 const url = 'https://covid19.mathdro.id/api'
+const dailyDataUrl = 'https://api.covidtracking.com/v1/us/daily.json'
 
 export const fetchData = async () => {
     try {
@@ -11,8 +12,20 @@ export const fetchData = async () => {
 
         return {confirmed,recovered,deaths,lastUpdate};
 
-    } catch {
-        console.log('error')
+    } catch(e) {
+        console.log(e)
+
+    }
+
+}
+
+export const fetchDailyData = async () => {
+    try {
+        const response = await axios.get(dailyDataUrl);
+        return response;
+
+    } catch (e) {
+        console.log(e)
 
     }
 
