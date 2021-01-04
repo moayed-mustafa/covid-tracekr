@@ -11,27 +11,51 @@ const Charts = ({ dailyData }) => {
         dailyData ? <Line
 
             data={{
-                labels:  dailyData.map(({ lastModified }) => new Date(lastModified ).toLocaleString()),
-                dataSets: [
+                labels: dailyData.map(({ dateChecked }) => new Date(dateChecked).toDateString()),
+                datasets: [
                     {
-                        data: dailyData.map(( {positive} ) => positive),
+                        data: dailyData.map(({ positive }) => positive),
                         label: 'Infected',
-                        borderColor: "#333333",
-                        fill: true
+                        borderColor: 'rgba(230, 39, 32, 0.6)',
+                        backgroundColor: 'rgba(230, 39, 32, 0.6)',
+                        fill: true,
+                        lineTension: 0.5,
+                        borderWidth:1
                     },
                     {
-                        data: dailyData.map(( {recovered} ) => recovered),
-                        lable: "recovered",
-                        borderColor: "green",
-                        fill: true
+                        data: dailyData.map(({ recovered }) => recovered),
+                        label: "recovered",
+                        borderColor: 'rgba(52, 180, 47, 0.6)',
+                        backgroundColor: 'rgba(52, 180, 47, 0.6)',
+                        fill: true,
+                        lineTension: 0.5,
+                        borderWidth:1
                     },
                     {
                         data: dailyData.map(({ death }) => death),
                         label: "deaths",
-                        borderColor: "black",
-                        fill: true
+                        borderColor: 'rgba(0, 0, 0, 0.8) ',
+                        backgroundColor: 'rgba(0, 0, 0, 0.75) ',
+                        fill: true,
+                        lineTension: 0.5,
+                        borderWidth:1
                     }
-                ]
+                ],
+
+
+            }}
+            options= {{
+                title: {
+                    display: true,
+                    text: 'COVID19 STATS',
+                    fontSize: 20
+
+                },
+                legend: {
+                    display: true,
+                    position: 'right'
+                }
+
             }}
 
         /> : null

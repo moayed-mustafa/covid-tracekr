@@ -12,13 +12,13 @@ const Cards = ({data:{confirmed, recovered, deaths, lastUpdate}}) => {
         !confirmed ? <h1>Loading...</h1> :
             <div className={styles.container}>
                 <Grid container spacing={2} justify="space-between" >
-                    <IndividualCard header="Infected"
+                    <IndividualCard header="New Cases"
                      data={confirmed.value}
                      date={new Date(lastUpdate).toDateString()}
                         fotter="No.active cases of COVID19"
                         style={styles.infected}
                      />
-                    <IndividualCard header="Recovered"
+                    <IndividualCard header="Recovered "
                      data={recovered.value}
                         date={new Date(lastUpdate).toDateString()}
                         fotter="No.recovered cases of COVID19"
