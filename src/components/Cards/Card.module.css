@@ -10,24 +10,31 @@
     background-color:rgba(237, 241, 243, 0.6);
 
 }
+.mainColor{
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+}
 .card{
-    border-top: solid rgba(117, 111, 111, 0.6) 10px;
+    border-top: solid white 10px;
+    border-bottom: solid  white 10px;
+    color: white !important;
     border-radius: 10px;
     margin: 0 2% !important;
 
 }
 .infected{
-    /* background-color: yellowgreen !important; */
-    border-bottom: solid rgba(230, 39, 32, 0.6) 10px;
+    background-color: rgb(212, 17, 17) !important;
+
 
 }
 .recovered{
-    /* background-color: goldenrod !important; */
-    border-bottom: solid rgba(52, 180, 47, 0.6) 10px;
+    background-color: rgb(65, 148, 26) !important;
 
 }
 .deaths{
-    /* background-color: orangered!important; */
-    border-bottom: solid rgba(0, 0, 0, 0.8) 10px;
+    border-top: solid  white 10px;
+
+    background-color: black !important;
 
 }

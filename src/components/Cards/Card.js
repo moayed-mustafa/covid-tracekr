@@ -6,20 +6,23 @@ import CountUp from 'react-countup'
 
 const IndividualCard = ({header,data, date, fotter, style}) => {
 
+    // component={Card}
     return(
-    <Grid item component={Card} xs= {12} md={3}  className={cx(style, styles.card)}>
-                    <CardContent>
-                <Typography color="textSecondary" gutterBottom>{header}</Typography>
-                <Typography variant="h5" >
+        <Grid item xs={12} md={3} >
+            <Card className={cx(style, styles.card)}>
+                    <CardContent >
+                <Typography  className={styles.mainColor}  color="textSecondary" gutterBottom>{header}</Typography>
+                <Typography  className={styles.mainColor}variant="h5" >
                     <CountUp start={0}
                         end={data}
                         duration={2.5}
                         separator=",">
                     </CountUp>
                 </Typography>
-                <Typography variant="body2">{fotter}</Typography>
-                <Typography color="textSecondary">last update:{date}</Typography>
-                    </CardContent>
+                <Typography  className={styles.mainColor}variant="body2">{fotter}</Typography>
+                <Typography className={styles.mainColor} color="textSecondary">last update:{date}</Typography>
+                </CardContent>
+            </Card>
         </Grid>
     )
 
