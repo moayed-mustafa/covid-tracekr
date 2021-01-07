@@ -3,7 +3,6 @@ import {Grid } from '@material-ui/core'
 import styles from './Card.module.css'
 import IndividualCard from './Card'
 
-//  This is the main cards component, It will house the cards for
 
 
 const Cards = ({data:{confirmed, recovered, deaths, lastUpdate}}) => {

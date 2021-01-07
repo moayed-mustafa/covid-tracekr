@@ -6,7 +6,6 @@ import CountUp from 'react-countup'
 
 const IndividualCard = ({header,data, date, fotter, style}) => {
 
-    // component={Card}
     return(
         <Grid item xs={12} md={3} >
             <Card className={cx(style, styles.card)}>

@@ -1,36 +1,42 @@
-import React,{useEffect}from 'react'
-import { Line, Bar, Pie } from 'react-chartjs-2'
+import React from 'react'
+import { Line, Doughnut } from 'react-chartjs-2'
 import styles from './charts.module.css'
-import {fetchCountryData } from '/Users/moayed/Desktop/covid-tracker/src/api'
+
+const Charts = ({ dailyData, country, countryData}) => {
+
+    const Dounght = (
+
+        countryData.hasOwnProperty("confirmed") ? <Doughnut
+            data={{
+                labels: ["Confirmed","Recovered", "Deaths"],
+                datasets: [
+                    {
+                        data: [countryData.confirmed.value,
+                        countryData.recovered.value,
+                        countryData.deaths.value],
+                        backgroundColor: ['rgb(212, 17, 17)', "rgb(65, 148, 26)", "rgb(0,0,0)"],
+                        hoverBackgroundColor: ['rgba(212, 17, 17, 0.3)', "rgba(65, 148, 26, 0.3)", "rgba(0,0,0, 0.3)"],
+
+                    }
+                ]
+            }}
+
+            options= {{
+                title: {
+                    display: true,
+                    text: `${country}'s STATS`,
+                    fontSize: 20
+
+                },
+                legend: {
+                    display: true,
+                    position: 'right'
+                }
+
+            }}
 
 
-//  This is the main cards component, It will house the cards for
-
-
-const Charts = ({ dailyData, country }) => {
-
-    console.log('rendering')
-
-    useEffect(() => {
-        const fetchCountry = async () => {
-            fetchCountryData(country)
-
-        }
-        fetchCountry()
-    }, [country])
-
-    // make the pie chart
-    const pieChart = (
-
-        <Pie
-            data={{}}
-
-
-
-
-
-
-            />
+            /> : null
     )
 
     // make the line chart
@@ -89,7 +95,7 @@ const Charts = ({ dailyData, country }) => {
     )
     return (
         <div className={styles.container}>
-            {country? pieChart: lineChart}
+            {country? Dounght: lineChart}
        </div>
     )
 
